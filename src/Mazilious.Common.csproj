@@ -7,7 +7,6 @@
         <Description>Common utilities and helpers for Mazilious projects</Description>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <RepositoryUrl>https://github.com/mfalicoff/mazilious.common</RepositoryUrl>
-        <PackageReadmeFile>README.md</PackageReadmeFile>
         <PackageTags>utilities;helpers;common</PackageTags>
     </PropertyGroup>
 
