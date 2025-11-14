@@ -3,17 +3,37 @@
   "extends": ["config:recommended"],
   "prConcurrentLimit": 0,
   "dependencyDashboard": false,
-  "groupName": "all dependencies",
-  "groupSlug": "all",
   "lockFileMaintenance": {
     "enabled": true
   },
+  "separateMajorMinor": false,
   "packageRules": [
     {
-      "groupName": "all dependencies",
-      "groupSlug": "all",
-      "matchPackageNames": ["*"]
+      "groupName": "frontend dependencies",
+      "groupSlug": "frontend",
+      "matchManagers": ["npm", "pnpm", "yarn"],
+      "branchPrefix": "renovate-frontend/",
+      "branchName": "{{{branchPrefix}}}{{{additionalBranchPrefix}}}{{{branchTopic}}}",
+      "commitMessagePrefix": "[Frontend]",
+      "schedule": ["before 6am on sunday"]
+    },
+    {
+      "groupName": "backend dependencies",
+      "groupSlug": "backend",
+      "matchManagers": ["nuget"],
+      "branchPrefix": "renovate-backend/",
+      "branchName": "{{{branchPrefix}}}{{{additionalBranchPrefix}}}{{{branchTopic}}}",
+      "commitMessagePrefix": "[Backend]",
+      "schedule": ["before 6am on sunday"]
+    },
+    {
+      "groupName": "infrastructure dependencies",
+      "groupSlug": "infrastructure",
+      "matchManagers": ["github-actions", "dockerfile", "docker-compose"],
+      "branchPrefix": "renovate-infrastructure/",
+      "branchName": "{{{branchPrefix}}}{{{additionalBranchPrefix}}}{{{branchTopic}}}",
+      "commitMessagePrefix": "[Infrastructure]",
+      "schedule": ["before 6am on sunday"]
     }
-  ],
-  "separateMajorMinor": false
+  ]
 }
